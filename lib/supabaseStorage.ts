@@ -9,13 +9,13 @@ export async function uploadToStorage(
   const path = `uploads/${timestamp}_${fileName}`;
 
   const { error } = await supabaseAdmin().storage
-    .from("arsip-files")
+    .from("arsip-file")
     .upload(path, fileBuffer, { contentType: mimeType, upsert: false });
 
   if (error) throw error;
 
   const { data: publicUrl } = supabaseAdmin().storage
-    .from("arsip-files")
+    .from("arsip-file")
     .getPublicUrl(path);
 
   return { fileUrl: publicUrl.publicUrl, fileId: path };

@@ -16,7 +16,7 @@
 ## Architecture
 - SPA with 4 tabs: Dashboard, Surat Masuk, Surat Keluar, Settings
 - **Database**: Supabase PostgreSQL (snake_case columns, mapped to camelCase in API)
-- **File storage**: Supabase Storage (bucket `arsip-files`, public)
+- **File storage**: Supabase Storage (bucket `arsip-file`, public)
 - **Auth**: Supabase Auth (email `islamiyah@myarsip.sch.id` / `mistaku12345`)
 - **Session**: Supabase Auth session (bukan localStorage custom)
 - Path alias: `@/*` → project root
@@ -56,7 +56,7 @@
 - **Tidak ada `/api/auth`** — auth via Supabase client-side (`signInWithPassword` / `signOut`)
 - **Tidak ada `data/db.json`** — sudah migrasi penuh ke Supabase
 - **`fileId`** — setiap upload menyimpan path file di Supabase Storage
-- **Supabase Storage** — bucket `arsip-files`, public; upload via `supabaseAdmin()`
+- **Supabase Storage** — bucket `arsip-file`, public; upload via `supabaseAdmin()`
 - **Komponen utama >500 baris** — refactor butuh hati-hati
 - **`DISABLE_HMR` env** untuk AI Studio — bedakan dengan dev lokal
 - **`penerimaPertama` default `"-"`** di form — field ini perlu manual diisi nama guru
