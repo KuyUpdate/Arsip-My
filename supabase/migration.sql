@@ -52,3 +52,8 @@ INSERT INTO teachers (nama) VALUES
   ('SEPTI DIA PERTIWI, S.Pd.'),
   ('SITI NUR HAMIDAH S.Pd.I')
 ON CONFLICT DO NOTHING;
+
+-- Enable Row Level Security (aman karena API pake service_role key)
+ALTER TABLE surat_masuk ENABLE ROW LEVEL SECURITY;
+ALTER TABLE surat_keluar ENABLE ROW LEVEL SECURITY;
+ALTER TABLE teachers ENABLE ROW LEVEL SECURITY;
