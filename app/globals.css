@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
+  
+  /* Madrasah Green Colors - Updated with Editorial Aesthetic #166534 values */
+  --color-madrasah-50: #f0fdf4;
+  --color-madrasah-100: #dcfce7;
+  --color-madrasah-200: #bbf7d0;
+  --color-madrasah-300: #86efac;
+  --color-madrasah-400: #4ade80;
+  --color-madrasah-500: #22c55e;
+  --color-madrasah-600: #15803d;
+  --color-madrasah-700: #166534;
+  --color-madrasah-800: #14532d;
+  --color-madrasah-900: #0f3d1e;
+  --color-madrasah-950: #052e16;
+}
+
+/* Custom prints helper */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+}

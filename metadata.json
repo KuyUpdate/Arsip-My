@@ -1,0 +1,6 @@
+{
+  "name": "My Arsip",
+  "description": "Aplikasi arsip surat masuk dan keluar digital untuk MIS Islamiyah Tanjungrejo. Memudahkan pencatatan nomor, tanggal, asal pengirim, penerima, disposisi kepala sekolah, dan pencarian dokumen instan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
