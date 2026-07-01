@@ -618,18 +618,7 @@ export default function SuratMasukModule({
                           )}
 
                           {/* Download berkas */}
-                          {item.fileId ? (
-                            <a
-                              href={`https://drive.google.com/uc?export=download&id=${item.fileId}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="p-1.5 hover:bg-slate-100 text-blue-700 hover:text-blue-800 rounded-lg transition-colors cursor-pointer"
-                              title="Download Berkas"
-                              aria-label="Download Berkas"
-                            >
-                              <Download className="h-4.5 w-4.5" />
-                            </a>
-                          ) : item.fileUrl ? (
+                          {item.fileUrl ? (
                             <a
                               href={item.fileUrl}
                               target="_blank"

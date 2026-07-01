@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { uploadToDrive } from "@/lib/googleDrive";
+import { uploadToStorage } from "@/lib/supabaseStorage";
 
 const ALLOWED_MIME_TYPES = [
   "image/jpeg",
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     const timestamp = Date.now();
     const safeName = `${timestamp}_${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
 
-    const { fileUrl, fileId } = await uploadToDrive(buffer, safeName, file.type);
+    const { fileUrl, fileId } = await uploadToStorage(buffer, safeName, file.type);
 
     return NextResponse.json({
       success: true,
