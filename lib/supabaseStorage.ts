@@ -3,6 +3,13 @@ import { writeFileSync, existsSync, mkdirSync, unlinkSync } from "fs";
 import { join } from "path";
 import { isDevMode } from "./devDb";
 
+async function ensureBucket() {
+  const { error } = await supabaseAdmin().storage.createBucket("arsip-file", {
+    public: true,
+  });
+  if (error && !error.message?.includes("already exists")) throw error;
+}
+
 export async function uploadToStorage(
   fileBuffer: Buffer,
   fileName: string,
@@ -15,6 +22,8 @@ export async function uploadToStorage(
     writeFileSync(join(dir, path), fileBuffer);
     return { fileUrl: `/uploads/${path}`, fileId: path };
   }
+
+  await ensureBucket();
 
   const timestamp = Date.now();
   const path = `uploads/${timestamp}_${fileName}`;

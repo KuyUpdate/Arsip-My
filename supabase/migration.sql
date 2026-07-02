@@ -53,6 +53,11 @@ INSERT INTO teachers (nama) VALUES
   ('SITI NUR HAMIDAH S.Pd.I')
 ON CONFLICT DO NOTHING;
 
+-- Storage bucket for file uploads
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('arsip-file', 'arsip-file', true)
+ON CONFLICT (id) DO NOTHING;
+
 -- Enable Row Level Security (aman karena API pake service_role key)
 ALTER TABLE surat_masuk ENABLE ROW LEVEL SECURITY;
 ALTER TABLE surat_keluar ENABLE ROW LEVEL SECURITY;
