@@ -1,4 +1,5 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { isDevMode, devSupabase } from "./devDb";
 
 let _supabase: SupabaseClient | null = null;
 let _supabaseAdmin: SupabaseClient | null = null;
@@ -14,6 +15,7 @@ function getClient(): SupabaseClient {
 }
 
 function getAdminClient(): SupabaseClient {
+  if (isDevMode()) return devSupabase();
   if (!_supabaseAdmin) {
     _supabaseAdmin = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,

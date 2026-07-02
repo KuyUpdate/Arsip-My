@@ -618,18 +618,19 @@ export default function SuratMasukModule({
                           )}
 
                           {/* Download berkas */}
-                          {item.fileUrl ? (
-                            <a
-                              href={item.fileUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="p-1.5 hover:bg-slate-100 text-blue-700 hover:text-blue-800 rounded-lg transition-colors cursor-pointer"
-                              title="Download Berkas"
-                              aria-label="Download Berkas"
-                            >
-                              <Download className="h-4.5 w-4.5" />
-                            </a>
-                          ) : null}
+                          <button
+                            onClick={() => { if (item.fileUrl) window.open(item.fileUrl, '_blank'); }}
+                            disabled={!item.fileUrl}
+                            className={`p-1.5 rounded-lg transition-colors ${
+                              item.fileUrl
+                                ? 'hover:bg-slate-100 text-blue-700 hover:text-blue-800 cursor-pointer'
+                                : 'text-slate-300 cursor-not-allowed'
+                            }`}
+                            title={item.fileUrl ? 'Download Berkas' : 'Tidak ada berkas'}
+                            aria-label="Download Berkas"
+                          >
+                            <Download className="h-4.5 w-4.5" />
+                          </button>
 
                           {/* Edit data */}
                           <button
